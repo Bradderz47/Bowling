@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!gameController.IsLocked())
         {
-            // Camera
+            // Player Camera
             float mouseX = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensitivity;
             float mouseY = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensitivity;
 
@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
 
             transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
 
-            // Movement
+            // Player Movement
             int x = 0, z = 0;
 
             if (Input.GetKey(KeyCode.W)) z += 1;
