@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 /// <summary>
@@ -11,7 +12,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     [Header("Initialisation")]
-    [SerializeField] private Thrower_ thrower;
+    [SerializeField] private TextMeshPro scoreText;
     [SerializeField] private pin[] pins;
 
     // Bowling awards a score of how many pins you knock down, with weird rules for spares and strikes
@@ -167,9 +168,8 @@ public class GameController : MonoBehaviour
             scoredFrames++;
         }
         Debug.Log("Score for frame "+scoredFrames+" : " + allScores[scoredFrames-1] + " For a total score of " + playerScore);
+        scoreText.text = playerScore.ToString();
     }
-
-
     public void SwitchLocked() { locked = !locked; }
     public bool IsLocked() { return locked; }
 

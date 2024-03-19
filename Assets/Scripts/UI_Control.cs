@@ -18,8 +18,6 @@ public class UI_Control : MonoBehaviour
     {
         rect_A.sizeDelta = new Vector2(rect.rect.height / 5, rect.rect.height / 10);
         rect_A.position = new Vector3(rect_A.rect.width / 2, rect_A.rect.height / 2, 0);
-
-
     }
     public void quit()
     {

@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 157827972}
   - component: {fileID: 157827971}
   - component: {fileID: 157827970}
-  - component: {fileID: 157827969}
+  - component: {fileID: 157827974}
   m_Layer: 0
   m_Name: qingmo (8)
   m_TagString: Ball
@@ -340,18 +340,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 510377416}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &157827969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 157827967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caca29bd328273c4bb67ced574121b19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &157827970
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -450,6 +438,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 157827967}
   m_Mesh: {fileID: 1011765592404528027, guid: f352d3fde8091f74d8f51b2e014f251e, type: 3}
+--- !u!114 &157827974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157827967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a6dabd5ecb01141bda91f832728ad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 157827971}
+  throwingPower: 0
+  throwingAngle: 0
+  rollStength: 0
+  spinPower: 0
+  spinAngle: 0
 --- !u!1 &160977433
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,7 +717,7 @@ GameObject:
   - component: {fileID: 267368996}
   - component: {fileID: 267368995}
   - component: {fileID: 267368994}
-  - component: {fileID: 267368993}
+  - component: {fileID: 267368998}
   m_Layer: 0
   m_Name: qingmo (5)
   m_TagString: Ball
@@ -734,18 +740,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 510377416}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &267368993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 267368991}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caca29bd328273c4bb67ced574121b19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &267368994
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -844,6 +838,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 267368991}
   m_Mesh: {fileID: 1011765592404528027, guid: f352d3fde8091f74d8f51b2e014f251e, type: 3}
+--- !u!114 &267368998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267368991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a6dabd5ecb01141bda91f832728ad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 267368995}
+  throwingPower: 0
+  throwingAngle: 0
+  rollStength: 0
+  spinPower: 0
+  spinAngle: 0
 --- !u!1 &269134642
 GameObject:
   m_ObjectHideFlags: 0
@@ -1253,7 +1265,7 @@ GameObject:
   - component: {fileID: 365841099}
   - component: {fileID: 365841098}
   - component: {fileID: 365841097}
-  - component: {fileID: 365841096}
+  - component: {fileID: 365841101}
   m_Layer: 0
   m_Name: qingmo (6)
   m_TagString: Ball
@@ -1276,18 +1288,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 510377416}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &365841096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 365841094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caca29bd328273c4bb67ced574121b19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &365841097
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1386,6 +1386,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 365841094}
   m_Mesh: {fileID: 1011765592404528027, guid: f352d3fde8091f74d8f51b2e014f251e, type: 3}
+--- !u!114 &365841101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365841094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a6dabd5ecb01141bda91f832728ad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 365841098}
+  throwingPower: 0
+  throwingAngle: 0
+  rollStength: 0
+  spinPower: 0
+  spinAngle: 0
 --- !u!1 &424557627
 GameObject:
   m_ObjectHideFlags: 0
@@ -1687,7 +1705,7 @@ GameObject:
   - component: {fileID: 524272265}
   - component: {fileID: 524272264}
   - component: {fileID: 524272263}
-  - component: {fileID: 524272262}
+  - component: {fileID: 524272268}
   m_Layer: 0
   m_Name: qingmo (4)
   m_TagString: Ball
@@ -1695,18 +1713,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &524272262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 524272261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caca29bd328273c4bb67ced574121b19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &524272263
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1820,6 +1826,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 510377416}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &524272268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524272261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a6dabd5ecb01141bda91f832728ad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 524272264}
+  throwingPower: 0
+  throwingAngle: 0
+  rollStength: 0
+  spinPower: 0
+  spinAngle: 0
 --- !u!1 &527508326
 GameObject:
   m_ObjectHideFlags: 0
@@ -1939,7 +1963,7 @@ GameObject:
   - component: {fileID: 531510530}
   - component: {fileID: 531510529}
   - component: {fileID: 531510528}
-  - component: {fileID: 531510527}
+  - component: {fileID: 531510532}
   m_Layer: 0
   m_Name: qingmo (11)
   m_TagString: Ball
@@ -1962,18 +1986,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 510377416}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &531510527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 531510525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caca29bd328273c4bb67ced574121b19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &531510528
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2072,6 +2084,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 531510525}
   m_Mesh: {fileID: 1011765592404528027, guid: f352d3fde8091f74d8f51b2e014f251e, type: 3}
+--- !u!114 &531510532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531510525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a6dabd5ecb01141bda91f832728ad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 531510529}
+  throwingPower: 0
+  throwingAngle: 0
+  rollStength: 0
+  spinPower: 0
+  spinAngle: 0
 --- !u!1 &684571982
 GameObject:
   m_ObjectHideFlags: 0
@@ -2977,7 +3007,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 874971112}
-  - component: {fileID: 874971111}
   m_Layer: 0
   m_Name: Lane2 Pins
   m_TagString: Untagged
@@ -2985,21 +3014,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &874971111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 874971110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dfb8d240d205b542b3cdc4a541c9324, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Isbump: 0
-  N: 0
-  score_Text: {fileID: 1879441976}
 --- !u!4 &874971112
 Transform:
   m_ObjectHideFlags: 0
@@ -3009,7 +3023,7 @@ Transform:
   m_GameObject: {fileID: 874971110}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.7, y: 0.35, z: 25.59}
+  m_LocalPosition: {x: 10.54, y: 0.35, z: 25.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3508,7 +3522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trigger: {fileID: 1153168695}
-  gameController: {fileID: 1262937953}
+  gameController: {fileID: 1879441978}
   returnLocation: {fileID: 1753473280}
   rollSpeed: 0.5
   returnDelay: 2
@@ -3995,7 +4009,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -4023,63 +4037,6 @@ RectTransform:
   m_AnchoredPosition: {x: 13.9993, y: 5.11}
   m_SizeDelta: {x: 5323.705, y: 491}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1262937951
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1262937952}
-  - component: {fileID: 1262937953}
-  m_Layer: 0
-  m_Name: ScoreController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1262937952
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1262937951}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -43.46804, y: -65.292656, z: 111.95174}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1262937953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1262937951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e18df11f53e54540aa982f0703dc448, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thrower: {fileID: 0}
-  pins:
-  - {fileID: 1202685533}
-  - {fileID: 1327289479}
-  - {fileID: 1293397674}
-  - {fileID: 732374471}
-  - {fileID: 276925623}
-  - {fileID: 160977440}
-  - {fileID: 1129623654}
-  - {fileID: 1858004956}
-  - {fileID: 1835334743}
-  - {fileID: 825669940}
-  timeToEndThrow: 6
 --- !u!1 &1293397667
 GameObject:
   m_ObjectHideFlags: 0
@@ -4706,7 +4663,7 @@ GameObject:
   - component: {fileID: 1447754422}
   - component: {fileID: 1447754421}
   - component: {fileID: 1447754420}
-  - component: {fileID: 1447754419}
+  - component: {fileID: 1447754424}
   m_Layer: 0
   m_Name: qingmo (10)
   m_TagString: Ball
@@ -4729,18 +4686,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 510377416}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1447754419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1447754417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caca29bd328273c4bb67ced574121b19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &1447754420
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4839,6 +4784,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1447754417}
   m_Mesh: {fileID: 1011765592404528027, guid: f352d3fde8091f74d8f51b2e014f251e, type: 3}
+--- !u!114 &1447754424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447754417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a6dabd5ecb01141bda91f832728ad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1447754421}
+  throwingPower: 0
+  throwingAngle: 0
+  rollStength: 0
+  spinPower: 0
+  spinAngle: 0
 --- !u!1 &1511506457
 GameObject:
   m_ObjectHideFlags: 0
@@ -5024,7 +4987,7 @@ GameObject:
   - component: {fileID: 1515805192}
   - component: {fileID: 1515805191}
   - component: {fileID: 1515805190}
-  - component: {fileID: 1515805189}
+  - component: {fileID: 1515805194}
   m_Layer: 0
   m_Name: qingmo (9)
   m_TagString: Ball
@@ -5047,18 +5010,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 510377416}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1515805189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1515805187}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caca29bd328273c4bb67ced574121b19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &1515805190
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5157,6 +5108,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1515805187}
   m_Mesh: {fileID: 1011765592404528027, guid: f352d3fde8091f74d8f51b2e014f251e, type: 3}
+--- !u!114 &1515805194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515805187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a6dabd5ecb01141bda91f832728ad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1515805191}
+  throwingPower: 0
+  throwingAngle: 0
+  rollStength: 0
+  spinPower: 0
+  spinAngle: 0
 --- !u!1 &1567620123
 GameObject:
   m_ObjectHideFlags: 0
@@ -5170,7 +5139,7 @@ GameObject:
   - component: {fileID: 1567620127}
   - component: {fileID: 1567620126}
   - component: {fileID: 1567620125}
-  - component: {fileID: 1567620124}
+  - component: {fileID: 1567620130}
   m_Layer: 0
   m_Name: qingmo (2)
   m_TagString: Ball
@@ -5178,18 +5147,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1567620124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1567620123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caca29bd328273c4bb67ced574121b19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &1567620125
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5303,6 +5260,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 510377416}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1567620130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567620123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a6dabd5ecb01141bda91f832728ad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1567620126}
+  throwingPower: 0
+  throwingAngle: 0
+  rollStength: 0
+  spinPower: 0
+  spinAngle: 0
 --- !u!1001 &1591160144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5821,7 +5796,7 @@ GameObject:
   - component: {fileID: 1677563770}
   - component: {fileID: 1677563769}
   - component: {fileID: 1677563768}
-  - component: {fileID: 1677563767}
+  - component: {fileID: 1677563772}
   m_Layer: 0
   m_Name: qingmo (7)
   m_TagString: Ball
@@ -5844,18 +5819,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 510377416}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1677563767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1677563765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caca29bd328273c4bb67ced574121b19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &1677563768
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5954,6 +5917,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1677563765}
   m_Mesh: {fileID: 1011765592404528027, guid: f352d3fde8091f74d8f51b2e014f251e, type: 3}
+--- !u!114 &1677563772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677563765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a6dabd5ecb01141bda91f832728ad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1677563769}
+  throwingPower: 0
+  throwingAngle: 0
+  rollStength: 0
+  spinPower: 0
+  spinAngle: 0
 --- !u!1 &1746310869
 GameObject:
   m_ObjectHideFlags: 0
@@ -5967,7 +5948,7 @@ GameObject:
   - component: {fileID: 1746310873}
   - component: {fileID: 1746310872}
   - component: {fileID: 1746310871}
-  - component: {fileID: 1746310870}
+  - component: {fileID: 1746310876}
   m_Layer: 0
   m_Name: qingmo (3)
   m_TagString: Ball
@@ -5975,18 +5956,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1746310870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1746310869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caca29bd328273c4bb67ced574121b19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &1746310871
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6100,6 +6069,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 510377416}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1746310876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746310869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a6dabd5ecb01141bda91f832728ad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1746310872}
+  throwingPower: 0
+  throwingAngle: 0
+  rollStength: 0
+  spinPower: 0
+  spinAngle: 0
 --- !u!1 &1753473279
 GameObject:
   m_ObjectHideFlags: 0
@@ -6630,7 +6617,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1879441975}
   - component: {fileID: 1879441977}
-  - component: {fileID: 1879441976}
+  - component: {fileID: 1879441980}
+  - component: {fileID: 1879441978}
+  - component: {fileID: 1879441979}
   m_Layer: 5
   m_Name: Lane 2
   m_TagString: Untagged
@@ -6654,43 +6643,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -731, y: 0.000051498}
+  m_AnchoredPosition: {x: -677, y: 45}
   m_SizeDelta: {x: 1078.1, y: 491}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1879441976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1879441974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
-    m_MaxSize: 300
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 
 --- !u!222 &1879441977
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6699,6 +6654,165 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1879441974}
   m_CullTransparentMesh: 1
+--- !u!114 &1879441978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879441974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e18df11f53e54540aa982f0703dc448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 1879441980}
+  pins:
+  - {fileID: 1202685533}
+  - {fileID: 1327289479}
+  - {fileID: 1293397674}
+  - {fileID: 732374471}
+  - {fileID: 276925623}
+  - {fileID: 160977440}
+  - {fileID: 1129623654}
+  - {fileID: 1858004956}
+  - {fileID: 1835334743}
+  - {fileID: 825669940}
+  timeToEndThrow: 6
+--- !u!23 &1879441979
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879441974}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1879441980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879441974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 0
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 4200
+  m_fontSizeBase: 4200
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 0
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 1879441979}
+  m_maskType: 0
 --- !u!1 &1889825880
 GameObject:
   m_ObjectHideFlags: 0
@@ -8732,9 +8846,9 @@ GameObject:
   - component: {fileID: 6821483495309834930}
   - component: {fileID: 9117156797367573110}
   - component: {fileID: 9117156797367573109}
-  - component: {fileID: 9117156797367573108}
   - component: {fileID: 9117156797367573111}
   - component: {fileID: 9117156797367573112}
+  - component: {fileID: 9117156797367573113}
   m_Layer: 0
   m_Name: qingmo
   m_TagString: BuyBall
@@ -15920,18 +16034,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1328587864851079696}
   m_Mesh: {fileID: 1011765592404528027, guid: f352d3fde8091f74d8f51b2e014f251e, type: 3}
---- !u!114 &9117156797367573108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1328587864851079696}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caca29bd328273c4bb67ced574121b19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &9117156797367573109
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -16118,6 +16220,24 @@ MonoBehaviour:
   can: {fileID: 431529396}
   mo: {fileID: 1655685439}
   price: 30
+--- !u!114 &9117156797367573113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328587864851079696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a6dabd5ecb01141bda91f832728ad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 9117156797367573110}
+  throwingPower: 0
+  throwingAngle: 0
+  rollStength: 0
+  spinPower: 0
+  spinAngle: 0
 --- !u!33 &9130748192641558030
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -16229,6 +16349,5 @@ SceneRoots:
   - {fileID: 874971112}
   - {fileID: 510377416}
   - {fileID: 1240231627}
-  - {fileID: 1262937952}
   - {fileID: 1153168698}
   - {fileID: 1753473280}
