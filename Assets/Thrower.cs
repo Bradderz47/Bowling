@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Controls the throwing of the ball, provides a ball visual that is attached to the player that is swapped for the real ball upon throwing
+/// </summary>
 public class Thrower : MonoBehaviour
 {
 
@@ -16,6 +19,7 @@ public class Thrower : MonoBehaviour
 
 
     private bool charging = false;
+    private bool ready = true;
 
     private float power = 0f;
 
@@ -23,8 +27,9 @@ public class Thrower : MonoBehaviour
     void Update()
     {
         // Release the ball
-        if (Input.GetKeyUp(KeyCode.Space) && gameController.IsLocked())
+        if (Input.GetKeyUp(KeyCode.Space) && gameController.IsLocked() && ready)
         {
+            ready = false;
             gameObject.SetActive(false);
             ball.transform.position = transform.position;
             ball.gameObject.SetActive(true);
@@ -54,5 +59,15 @@ public class Thrower : MonoBehaviour
             power += (maxPower * Time.deltaTime / chargeTime); 
             if (power > maxPower) power = maxPower;
         }
+    }
+
+    public void initiateNewThrow()
+    {
+        ready = true;
+        gameObject.SetActive(true);
+        ball.transform.position = transform.position;
+        ball.transform.rotation = Quaternion.identity;
+        ball.gameObject.SetActive(false);
+
     }
 }

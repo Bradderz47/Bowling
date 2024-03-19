@@ -38,7 +38,6 @@ public class BowlingBall : MonoBehaviour
     private bool thrown = false;
     private void FixedUpdate()
     {
-
         // Constantly add force in chosen directions to amplify the effects.
         if (thrown)
         {
@@ -57,7 +56,6 @@ public class BowlingBall : MonoBehaviour
         float verticalRads = y / (180 / Mathf.PI);
         force = new Vector3(Mathf.Sin(horizontalRads), Mathf.Tan(verticalRads), Mathf.Cos(horizontalRads)).normalized;
 
-        Debug.Log("Vertical " + y);
         Debug.DrawRay(transform.position, force * power, Color.red, 60f);
 
         // Spin is applied independent of player facing
@@ -79,5 +77,10 @@ public class BowlingBall : MonoBehaviour
         throwingAngle = angle;
         spinPower = spin;
         this.spinAngle = spinAngle;
+    }
+
+    public void EndThrow()
+    {
+        thrown = false;
     }
 }

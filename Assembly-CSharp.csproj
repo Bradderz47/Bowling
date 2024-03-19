@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\PlayerController.cs" />
+    <Compile Include="Assets\BallBounds.cs" />
     <Compile Include="Assets\Scripts\UI_Control.cs" />
     <Compile Include="Assets\BowlingBall.cs" />
     <Compile Include="Assets\Scripts\purchase.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Assets\Scripts\Ball_Controller.cs" />
     <Compile Include="Assets\Scripts\Thrower.cs" />
     <Compile Include="Assets\Scripts\money.cs" />
+    <Compile Include="Assets\pin.cs" />
     <Compile Include="Assets\GameController.cs" />
   </ItemGroup>
   <ItemGroup>
