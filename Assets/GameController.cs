@@ -11,7 +11,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     [Header("Initialisation")]
-    [SerializeField] private Thrower thrower;
+    [SerializeField] private Thrower_ thrower;
     [SerializeField] private pin[] pins;
 
     // Bowling awards a score of how many pins you knock down, with weird rules for spares and strikes
@@ -61,7 +61,6 @@ public class GameController : MonoBehaviour
                 EndThrow();
             }
         }
-
     }
 
     /// <summary>
@@ -140,7 +139,7 @@ public class GameController : MonoBehaviour
         Debug.Log("Next Throw");
         currentThrow++;
         pinsKnockedThisThrow = 0;
-        thrower.initiateNewThrow();
+        //thrower.initiateNewThrow();
     }
 
     private void CalculateScore(bool lastFrame)

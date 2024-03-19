@@ -37,8 +37,8 @@ public class pin : MonoBehaviour
     void Update()
     {
         // The pin was knocked over
-        if (transform.localPosition.y < fallenHeight && !knocked && !reset) 
-        { 
+        if ((Mathf.Abs(transform.localEulerAngles.x) > 20 || Mathf.Abs(transform.localEulerAngles.z) > 20) && !knocked && !reset)
+        {
             gameController.PinKnocked();
             knocked = true;
         }
@@ -52,7 +52,7 @@ public class pin : MonoBehaviour
                 rb.isKinematic = true;
             }
         }
-        if (dead && transform.localPosition.y > -2)
+        if (dead && transform.localPosition.y > fallenHeight)
         {
             transform.position -= new Vector3 (0, deathSpeed, 0) * Time.deltaTime;
             return;

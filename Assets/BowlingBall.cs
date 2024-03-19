@@ -41,34 +41,42 @@ public class BowlingBall : MonoBehaviour
         // Constantly add force in chosen directions to amplify the effects.
         if (thrown)
         {
-            rb.AddForce(new Vector3(force.x, 0, force.z).normalized * rollStength * Time.deltaTime);
+            //rb.AddForce(new Vector3(force.x, 0, force.z).normalized * rollStength * Time.deltaTime);
             rb.AddTorque(torque * Time.deltaTime);
         }
-        
+
     }
 
-    public void Throw(float x, float y, float power)
+
+    public void Throw(Camera mainCam, float power)
     {
         // Ensure throw is applied in the look direction
+        transform.SetParent(null);
+        rb.isKinematic = false;
+        rb.velocity = mainCam.transform.forward * power;
+        ////rb.angularVelocity = mainCam.transform.forward * spinPower;
+        //// Convert the angle into radiens and calculate the force vector
+        //float Xrotation = mainCam.transform.rotation.eulerAngles.y;
+        //if (Xrotation > 45) Xrotation -= 360;
+        //float Yrotation = mainCam.transform.rotation.eulerAngles.x;
+        //if (Yrotation > 60) Yrotation -= 360;
+        //float horizontalRads = Xrotation / (180 / Mathf.PI);
+        //float verticalRads = Yrotation / (180 / Mathf.PI);
+        //force = new Vector3(Mathf.Sin(horizontalRads), Mathf.Tan(verticalRads), Mathf.Cos(horizontalRads)).normalized;
 
-        // Convert the angle into radiens and calculate the force vector
-        float horizontalRads = x / (180 / Mathf.PI);
-        float verticalRads = y / (180 / Mathf.PI);
-        force = new Vector3(Mathf.Sin(horizontalRads), Mathf.Tan(verticalRads), Mathf.Cos(horizontalRads)).normalized;
+        //Debug.DrawRay(transform.position, force * power, Color.red, 60f);
 
-        Debug.DrawRay(transform.position, force * power, Color.red, 60f);
+        //// Spin is applied independent of player facing
+        //float forward = 90 - Mathf.Abs(spinAngle);
+        //float side = spinAngle;
 
-        // Spin is applied independent of player facing
-        float forward = 90 - Mathf.Abs(spinAngle);
-        float side = spinAngle;
-
-        torque = new Vector3(forward + x, 0, side - x).normalized * spinPower;      
+        //torque = new Vector3(forward + Xrotation, 0, side + Yrotation).normalized * spinPower;
         if (!thrown)
         {
             thrown = true;
             rb.isKinematic = false;
-            rb.AddForce(force * power);
-        }   
+            //rb.AddForce(force * power);
+        }
     }
 
     public void SetValues(float power, float angle, float spin, float spinAngle) 

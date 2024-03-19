@@ -39,7 +39,6 @@ public class score : MonoBehaviour
             _money.M++;
         }
            
-
         transform.position = posi;
         transform.localEulerAngles = rota;
         Lock = false; 

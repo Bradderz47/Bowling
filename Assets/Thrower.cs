@@ -42,7 +42,7 @@ public class Thrower : MonoBehaviour
             if (Yrotation > 60) Yrotation -= 360;
 
 
-            ball.Throw(Xrotation, -Yrotation, power);
+            //ball.Throw(Xrotation, -Yrotation, power);
 
             charging = false;
             power = 0f;
