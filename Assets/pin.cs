@@ -37,7 +37,9 @@ public class pin : MonoBehaviour
     void Update()
     {
         // The pin was knocked over
-        if ((Mathf.Abs(transform.localEulerAngles.x) > 20 || Mathf.Abs(transform.localEulerAngles.z) > 20) && !knocked && !reset)
+        if ( ( (Mathf.Abs(transform.localEulerAngles.x - 180) < 160)
+            || (Mathf.Abs(transform.localEulerAngles.z - 180) < 160) )
+            && !knocked && !reset)
         {
             gameController.PinKnocked();
             knocked = true;

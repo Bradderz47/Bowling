@@ -578,7 +578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallenHeight: -2
-  deathDelay: 8
+  deathDelay: 6
   deathSpeed: 1
   resetTime: 1
 --- !u!136 &160977441
@@ -1062,7 +1062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallenHeight: -2
-  deathDelay: 8
+  deathDelay: 6
   deathSpeed: 1
   resetTime: 1
 --- !u!136 &276925624
@@ -2385,7 +2385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallenHeight: -2
-  deathDelay: 8
+  deathDelay: 6
   deathSpeed: 1
   resetTime: 1
 --- !u!136 &732374472
@@ -2836,7 +2836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallenHeight: -2
-  deathDelay: 8
+  deathDelay: 6
   deathSpeed: 1
   resetTime: 1
 --- !u!136 &825669941
@@ -3363,7 +3363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallenHeight: -2
-  deathDelay: 8
+  deathDelay: 6
   deathSpeed: 1
   resetTime: 1
 --- !u!136 &1129623655
@@ -3640,7 +3640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallenHeight: -2
-  deathDelay: 8
+  deathDelay: 6
   deathSpeed: 1
   resetTime: 1
 --- !u!136 &1202685534
@@ -4079,7 +4079,7 @@ MonoBehaviour:
   - {fileID: 1858004956}
   - {fileID: 1835334743}
   - {fileID: 825669940}
-  timeToEndThrow: 8
+  timeToEndThrow: 6
 --- !u!1 &1293397667
 GameObject:
   m_ObjectHideFlags: 0
@@ -4208,7 +4208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallenHeight: -2
-  deathDelay: 8
+  deathDelay: 6
   deathSpeed: 1
   resetTime: 1
 --- !u!136 &1293397675
@@ -4362,7 +4362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallenHeight: -2
-  deathDelay: 8
+  deathDelay: 6
   deathSpeed: 1
   resetTime: 1
 --- !u!136 &1327289480
@@ -6440,7 +6440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallenHeight: -2
-  deathDelay: 8
+  deathDelay: 6
   deathSpeed: 1
   resetTime: 1
 --- !u!136 &1835334744
@@ -6594,7 +6594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallenHeight: -2
-  deathDelay: 8
+  deathDelay: 6
   deathSpeed: 1
   resetTime: 1
 --- !u!136 &1858004957
