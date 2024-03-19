@@ -27,7 +27,7 @@ public class score : MonoBehaviour
         if (Mathf.Abs(transform.localEulerAngles.x) > 20 || Mathf.Abs(transform.localEulerAngles.z) > 20)
         {
             Lock =true;
-            transform.parent.gameObject.GetComponent<GameController>().Isbump = true;
+            transform.parent.gameObject.GetComponent<GameController_>().Isbump = true;
                 Debug.Log(gameObject.name);
         }
     }
@@ -35,7 +35,7 @@ public class score : MonoBehaviour
     {
         if (Mathf.Abs(transform.localEulerAngles.x) > 30 || Mathf.Abs(transform.localEulerAngles.z) > 30)
         {
-            transform.parent.gameObject.GetComponent<GameController>().N++;//set score
+            transform.parent.gameObject.GetComponent<GameController_>().N++;//set score
             _money.M++;
         }
            

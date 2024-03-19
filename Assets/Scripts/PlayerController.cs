@@ -5,7 +5,7 @@ using UnityEngine;
 using static Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics;
 using UnityEngine.EventSystems;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController_ : MonoBehaviour
 {
     [SerializeField] private int moveSpeed;
     [SerializeField] private float sensitivity;

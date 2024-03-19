@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class GameController : MonoBehaviour
+public class GameController_ : MonoBehaviour
 {
     private List<GameObject> gameObjects = new List<GameObject>();
     public bool Isbump;

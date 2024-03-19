@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Thrower : MonoBehaviour
+public class Thrower_ : MonoBehaviour
 {
     [SerializeField] private float minPower;
     [SerializeField] private float maxPower;
