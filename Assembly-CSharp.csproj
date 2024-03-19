@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\PinProtector.cs" />
     <Compile Include="Assets\PlayerController.cs" />
     <Compile Include="Assets\BallBounds.cs" />
     <Compile Include="Assets\Scripts\UI_Control.cs" />

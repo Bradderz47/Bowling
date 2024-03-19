@@ -16,7 +16,7 @@ public class BallBounds : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        // setting ball to isKinematic removes all momentum so the next throw is unbiased.
+        // Stop Ball from moving and make it 'disappear'
         if (collider.tag.Equals("Ball") || collider.tag.Equals("BuyBall"))
         {
             collider.GetComponent<Rigidbody>().velocity = Vector3.zero;

@@ -25,10 +25,9 @@ public class pin : MonoBehaviour
 
     private Rigidbody rb;
 
-    private GameController gameController;
+    [SerializeField] private GameController gameController;
     private void Start()
     {
-        gameController = FindObjectOfType<GameController>();
         rb = GetComponent<Rigidbody>();
         initialPos = transform.localPosition;
     }

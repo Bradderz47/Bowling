@@ -356,6 +356,7 @@
 "Assets/BowlingBall.cs"
 "Assets/GameController.cs"
 "Assets/pin.cs"
+"Assets/PinProtector.cs"
 "Assets/PlayerController.cs"
 "Assets/Scripts/Ball_Controller.cs"
 "Assets/Scripts/GameController.cs"

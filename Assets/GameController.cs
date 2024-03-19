@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     [Header("Initialisation")]
     [SerializeField] private TextMeshPro scoreText;
     [SerializeField] private pin[] pins;
+    [SerializeField] private PinProtector protector;
 
     // Bowling awards a score of how many pins you knock down, with weird rules for spares and strikes
     // Strikes award 10, but also add the next 2 shots. So a maximum of 30 for a turkey
@@ -53,6 +54,7 @@ public class GameController : MonoBehaviour
             turnTimer += Time.deltaTime;
             if (turnTimer >= timeToEndThrow) 
             {
+                turnTimer = 0;
                 firstPinKnocked = false;
                 // Stop pins from falling after the timer, to avoid unforseen bugs
                 foreach (pin pin in pins)
@@ -77,6 +79,7 @@ public class GameController : MonoBehaviour
     }
     public void EndThrow()
     {
+        protector.StartProtect();
         locked = false;
         noOfThrowsSinceLastScoring++;
         // Edit the last three throws
