@@ -37,7 +37,7 @@ public class Thrower : MonoBehaviour
             if (spinAngle > -90 ) spinAngle -= 1;
             degreeText.text = "Spin Angle : " + spinAngle + "*";
             spinSlider.value = 0.5f + (0.5f/90 * spinAngle);
-            ball.SetSpin(spinAngle);
+            if (ball != null) ball.SetSpin(spinAngle);
             editDelay = 0.05f;
         }
         else if (Input.GetKey(KeyCode.E) && editDelay <= 0)
@@ -45,7 +45,7 @@ public class Thrower : MonoBehaviour
             if (spinAngle < 90) spinAngle += 1;
             degreeText.text = "Spin Angle : " + spinAngle + "*";
             spinSlider.value = 0.5f + (0.5f / 90 * spinAngle);
-            ball.SetSpin(spinAngle);
+            if (ball != null) ball.SetSpin(spinAngle);
             editDelay = 0.05f;
         }
             editDelay -= Time.deltaTime;
