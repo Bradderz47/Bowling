@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PinProtector : MonoBehaviour
 {
-    [SerializeField] private Transform protector;
+    [SerializeField] private GameController gameController;
     [SerializeField] private float moveDistance;
     [SerializeField] private float moveSpeed;
 
     [SerializeField] private float protectTime;
+
+    [Header("References")]
+    [SerializeField] private TextMeshPro readyText;
 
     private bool move = false;
     private bool protek = false;
@@ -42,7 +46,11 @@ public class PinProtector : MonoBehaviour
     }
     private void EndProtect()
     {
-        move = true;
-        protek = !protek;
+        if (gameController.GameActive())
+        {
+            move = true;
+            protek = !protek;
+            readyText.text = "Ready";
+        }
     }
 }

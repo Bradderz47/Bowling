@@ -79,7 +79,7 @@ public class BowlingBall : MonoBehaviour
         }
     }
 
-    public void SetValues(float power, float angle, float spin, float spinAngle) 
+    public void SetValues(float power, float angle, float spin, float spinAngle)
     {
         throwingPower = power;
         throwingAngle = angle;

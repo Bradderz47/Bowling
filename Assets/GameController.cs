@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour
 {
     [Header("Initialisation")]
     [SerializeField] private TextMeshPro scoreText;
+    [SerializeField] private TextMeshPro frameText;
+    [SerializeField] private TextMeshPro readyText;
     [SerializeField] private pin[] pins;
     [SerializeField] private PinProtector protector;
 
@@ -28,7 +30,7 @@ public class GameController : MonoBehaviour
     private float turnTimer;
     private bool firstPinKnocked;
 
-    private bool locked = false;
+    private bool gameActive = true;
 
     private int playerScore = 0;
     private int[] allScores = new int[10];
@@ -36,7 +38,7 @@ public class GameController : MonoBehaviour
     private int pinsKnockedThisFrame = 0;
     private int pinsKnockedThisThrow = 0;
     private int currentThrow = 1;
-    private int noOfThrowsSinceLastScoring = 0;
+    private int noOfThrowsSinceLastScoring = 1;
     /// <summary>
     /// An array of the last 3 throws, allowing the scoring to function (the 0th element is the most recent throw)
     /// </summary>
@@ -44,8 +46,24 @@ public class GameController : MonoBehaviour
     /// <summary>
     /// The current frame the player is currently on
     /// </summary>
-    private int currentFrame = 1;
+    private int currentFrame = 10;
     private int scoredFrames = 0;
+
+    /// <summary>
+    /// Call this to reset the lane completely
+    /// </summary>
+    public void InitialiseGame()
+    {
+        gameActive = true;
+        playerScore = 0;
+        allScores = new int[10];
+        pinsHitForFrames = new int[10];
+        currentThrow = 1;
+        noOfThrowsSinceLastScoring = 0;
+        //Reset Pins and protector
+        foreach (pin pin in pins) pin.ResetPin();
+        protector.StartProtect();
+    }
 
     private void Update()
     {
@@ -71,6 +89,7 @@ public class GameController : MonoBehaviour
     /// </summary>
     public void PinKnocked()
     {
+        readyText.text = "...";
         //Debug.Log("Knocked a pin " + (pinsKnockedThisFrame+1) + " this frame");
         if (!firstPinKnocked) firstPinKnocked = true;
         turnTimer = 0;
@@ -80,14 +99,13 @@ public class GameController : MonoBehaviour
     public void EndThrow()
     {
         protector.StartProtect();
-        locked = false;
         noOfThrowsSinceLastScoring++;
         // Edit the last three throws
         last3Throws[2] = last3Throws[1];
         last3Throws[1] = last3Throws[0];
         last3Throws[0] = pinsKnockedThisThrow;
         // End if shot was a strike, or if two subsequent shots where thrown, ignoring the 3 round last frame
-        if (pinsKnockedThisFrame == 10 || (currentThrow == 2 && currentFrame != 10))
+        if ( (pinsKnockedThisFrame == 10 && currentThrow < 2) || (currentThrow == 2 && currentFrame != 10))
         {
             Debug.Log("Starting Frame " + (currentFrame + 1));
             // Set pins knocked to 11, even though it was 10, so i know it was a strike and not a spare
@@ -100,6 +118,7 @@ public class GameController : MonoBehaviour
             {
                 pinsKnockedThisFrame = 0;
                 currentFrame++;
+                frameText.text = "Frame - " + currentFrame;
                 currentThrow = 0;
             }
         }
@@ -117,15 +136,20 @@ public class GameController : MonoBehaviour
                     Debug.Log("End Game");
                     playerScore += pinsKnockedThisFrame;
                     Debug.Log("FINAL SCORE : " + playerScore);
+                    frameText.text = "Game End";
+                    gameActive = false;
+                    //InitialiseGame();
                     return;
                 }
                 else foreach (pin pin in pins) pin.ResetPin();
             }
             // All three throws have been utilised, calculate the final score
-            if (currentThrow == 3)
+            if (currentThrow >= 3)
             {
                 CalculateScore(true);
                 Debug.Log("FINAL SCORE : " + playerScore);
+                frameText.text = "Game End";
+                gameActive = false;
                 return;
             }
         }
@@ -140,7 +164,7 @@ public class GameController : MonoBehaviour
             if (!pin.IsKnocked()) pin.ResetPin();
         }
 
-        Debug.Log("Next Throw");
+        Debug.Log("Next Throw, Current = " + currentThrow);
         currentThrow++;
         pinsKnockedThisThrow = 0;
         //thrower.initiateNewThrow();
@@ -173,15 +197,23 @@ public class GameController : MonoBehaviour
         Debug.Log("Score for frame "+scoredFrames+" : " + allScores[scoredFrames-1] + " For a total score of " + playerScore);
         scoreText.text = playerScore.ToString();
     }
-    public void SwitchLocked() { locked = !locked; }
-    public bool IsLocked() { return locked; }
 
     /// <summary>
     /// The ball is finished, so act as if a pin was knocked, starting the timer to end the turn, even if no pins were knocked
     /// </summary>
     public void BallFinished()
     {
+        readyText.text = "...";
         firstPinKnocked = true;
+    }
+
+    /// <summary>
+    /// Returns true if the game has not ended in this lane
+    /// </summary>
+    /// <returns></returns>
+    public bool GameActive()
+    {
+        return gameActive;
     }
 
 }
