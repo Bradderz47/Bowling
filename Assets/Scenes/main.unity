@@ -3138,7 +3138,7 @@ MonoBehaviour:
   rb: {fileID: 299109797}
   throwingPower: 0
   throwingAngle: 0
-  rollStength: 1000
+  rollStength: 500
   spinPower: 1000
   spinAngle: 0
 --- !u!1 &338616898

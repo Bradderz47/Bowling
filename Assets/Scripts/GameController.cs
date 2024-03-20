@@ -38,7 +38,7 @@ public class GameController : MonoBehaviour
     private int pinsKnockedThisFrame = 0;
     private int pinsKnockedThisThrow = 0;
     private int currentThrow = 1;
-    private int noOfThrowsSinceLastScoring = 1;
+    private int noOfThrowsSinceLastScoring = 0;
     /// <summary>
     /// An array of the last 3 throws, allowing the scoring to function (the 0th element is the most recent throw)
     /// </summary>
@@ -46,7 +46,7 @@ public class GameController : MonoBehaviour
     /// <summary>
     /// The current frame the player is currently on
     /// </summary>
-    private int currentFrame = 10;
+    private int currentFrame = 1;
     private int scoredFrames = 0;
 
     /// <summary>

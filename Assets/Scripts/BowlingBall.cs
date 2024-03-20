@@ -43,7 +43,7 @@ public class BowlingBall : MonoBehaviour
         // Constantly add force in chosen directions to amplify the effects.
         if (thrown)
         {
-            //rb.AddForce(new Vector3(force.x, 0, force.z).normalized * rollStength * Time.deltaTime);
+            rb.AddForce(new Vector3(force.x, 0, force.z).normalized * rollStength * Time.deltaTime);
             rb.AddTorque(torque * Time.deltaTime);
         }
 
@@ -71,13 +71,13 @@ public class BowlingBall : MonoBehaviour
         Debug.DrawRay(transform.position, force * power, Color.red, 60f);
 
         //// Spin is applied independent of player facing
-        float forward = (90 - Mathf.Abs(spinAngle))/90 +1;
-        float side = spinAngle/90 +1;
+        float forward = 90 - Mathf.Abs(spinAngle);
+        float side = -spinAngle;
 
         Debug.Log(forward);
         Debug.Log(side);
 
-        torque = new Vector3(mainCam.transform.forward.z, 0, -mainCam.transform.forward.x).normalized * spinPower;
+        torque = new Vector3(mainCam.transform.forward.z + forward, 0, -mainCam.transform.forward.x + side).normalized * spinPower;
         if (!thrown)
         {
             thrown = true;
