@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\PinProtector.cs" />
     <Compile Include="Assets\Scripts\UI_Control.cs" />
+    <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\purchase.cs" />
     <Compile Include="Assets\Scripts\BallBounds.cs" />
     <Compile Include="Assets\Scripts\BowlingBall.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Assets\Scripts\Ball_Controller.cs" />
     <Compile Include="Assets\Scripts\Thrower.cs" />
     <Compile Include="Assets\Scripts\money.cs" />
+    <Compile Include="Assets\Scripts\ScoreToBeatDisplay.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -740,8 +742,14 @@
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.AI.Navigation">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation.Updater">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Updater.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
@@ -773,8 +781,14 @@
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>

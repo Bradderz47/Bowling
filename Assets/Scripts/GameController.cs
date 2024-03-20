@@ -17,6 +17,14 @@ public class GameController : MonoBehaviour
     [SerializeField] private TextMeshPro readyText;
     [SerializeField] private pin[] pins;
     [SerializeField] private PinProtector protector;
+    [SerializeField] private MainMenu sceneController;
+
+    [Header("End Game Screens")]
+    [SerializeField] private GameObject victoryScreen;
+    [SerializeField] private GameObject defeatScreen;
+    [SerializeField] private TextMeshProUGUI scoreToBeatText;
+    [SerializeField] private TextMeshProUGUI yourScoreText;
+
 
     // Bowling awards a score of how many pins you knock down, with weird rules for spares and strikes
     // Strikes award 10, but also add the next 2 shots. So a maximum of 30 for a turkey
@@ -49,6 +57,32 @@ public class GameController : MonoBehaviour
     private int currentFrame = 1;
     private int scoredFrames = 0;
 
+    private void EndGame()
+    {
+        scoreToBeatText.gameObject.SetActive(true);
+        scoreToBeatText.text = sceneController.GetDifficultyScore().ToString();
+        yourScoreText.gameObject.SetActive(true);
+        yourScoreText.text = playerScore.ToString();
+        if (playerScore >= sceneController.GetDifficultyScore())
+        {
+            // End the game in victory
+            // Kill the player script so it no longer runs in the victory screen
+            Destroy(FindObjectOfType<PlayerController>());
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            victoryScreen.SetActive(true);
+        }
+        else
+        {
+            // End the game in defeat
+            // Kill the player script so it no longer runs in the victory screen
+            Destroy(FindObjectOfType<PlayerController>());
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            defeatScreen.SetActive(true);
+        }
+    }
+
     /// <summary>
     /// Call this to reset the lane completely
     /// </summary>
@@ -64,7 +98,9 @@ public class GameController : MonoBehaviour
         foreach (pin pin in pins) pin.ResetPin();
         protector.StartProtect();
     }
-
+    /// <summary>
+    /// Ends the throw once a pin has been knocked and no more pins are knocked for a delay
+    /// </summary>
     private void Update()
     {
         if (firstPinKnocked)
@@ -125,7 +161,7 @@ public class GameController : MonoBehaviour
         else if (currentFrame == 10)
         {
             // The 10th frame works as usual, but the player gets up to 3 throws
-            // Makje sure to calculate the score for the 9th frame
+            // Make sure to calculate the score for the 9th frame
 
             // Reset the pins for a strike
             if (currentThrow == 2)
@@ -138,7 +174,7 @@ public class GameController : MonoBehaviour
                     Debug.Log("FINAL SCORE : " + playerScore);
                     frameText.text = "Game End";
                     gameActive = false;
-                    //InitialiseGame();
+                    Invoke("EndGame", 5);
                     return;
                 }
                 else foreach (pin pin in pins) pin.ResetPin();
@@ -150,6 +186,9 @@ public class GameController : MonoBehaviour
                 Debug.Log("FINAL SCORE : " + playerScore);
                 frameText.text = "Game End";
                 gameActive = false;
+                //
+                Invoke("EndGame", 5);
+                //
                 return;
             }
         }
