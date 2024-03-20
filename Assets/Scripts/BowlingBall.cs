@@ -29,7 +29,9 @@ public class BowlingBall : MonoBehaviour
     /// <summary>
     /// The strength of the initial ball spin (including spinning forwards)
     /// </summary>
+    //[Range(-90,90)]
     [SerializeField] private float spinPower;
+    [Range(-90, 90)]
     [SerializeField] private float spinAngle;
 
     Vector3 force;
@@ -54,23 +56,28 @@ public class BowlingBall : MonoBehaviour
         transform.SetParent(null);
         rb.isKinematic = false;
         rb.velocity = mainCam.transform.forward * power;
-        ////rb.angularVelocity = mainCam.transform.forward * spinPower;
-        //// Convert the angle into radiens and calculate the force vector
-        //float Xrotation = mainCam.transform.rotation.eulerAngles.y;
-        //if (Xrotation > 45) Xrotation -= 360;
-        //float Yrotation = mainCam.transform.rotation.eulerAngles.x;
-        //if (Yrotation > 60) Yrotation -= 360;
-        //float horizontalRads = Xrotation / (180 / Mathf.PI);
-        //float verticalRads = Yrotation / (180 / Mathf.PI);
-        //force = new Vector3(Mathf.Sin(horizontalRads), Mathf.Tan(verticalRads), Mathf.Cos(horizontalRads)).normalized;
+        //rb.angularVelocity = mainCam.transform.forward * spinPower;
+        
+        // Get the facing of the camera, Yes the y controls horizontal rotation and x is vertical
+        float Xrotation = mainCam.transform.rotation.eulerAngles.y;
+        //if (Mathf.Abs(Xrotation) > 180) Xrotation -= 180
+        float Yrotation = -mainCam.transform.rotation.eulerAngles.x;
 
-        //Debug.DrawRay(transform.position, force * power, Color.red, 60f);
+        float horizontalRads = Xrotation / (180 / Mathf.PI);
+        float verticalRads = Yrotation / (180 / Mathf.PI);
+        // Convert the angle into radiens and calculate the force vector (Note, y needs to be included to calculate the correct x and z)
+        force = new Vector3(Mathf.Sin(horizontalRads), Mathf.Tan(verticalRads), Mathf.Cos(horizontalRads)).normalized;
+
+        Debug.DrawRay(transform.position, force * power, Color.red, 60f);
 
         //// Spin is applied independent of player facing
-        //float forward = 90 - Mathf.Abs(spinAngle);
-        //float side = spinAngle;
+        float forward = (90 - Mathf.Abs(spinAngle))/90 +1;
+        float side = spinAngle/90 +1;
 
-        //torque = new Vector3(forward + Xrotation, 0, side + Yrotation).normalized * spinPower;
+        Debug.Log(forward);
+        Debug.Log(side);
+
+        torque = new Vector3(mainCam.transform.forward.z, 0, -mainCam.transform.forward.x).normalized * spinPower;
         if (!thrown)
         {
             thrown = true;
