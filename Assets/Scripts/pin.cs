@@ -58,25 +58,34 @@ public class pin : MonoBehaviour
             transform.position -= new Vector3 (0, deathSpeed, 0) * Time.deltaTime;
             return;
         }
-        if (reset)
-        {
-            transform.position += resetMovement;
-            timer += Time.deltaTime;
-            float percentageComplete = timer / resetTime;
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, percentageComplete);
-            if (timer >= resetTime)
-            {
-                transform.localPosition = initialPos;
-                transform.rotation = Quaternion.identity;
-                rb.isKinematic = false;
-                reset = false;
-                knocked = false;
-            }
-        }
+        //if (reset)
+        //{
+        //    transform.position += resetMovement;
+        //    timer += Time.deltaTime;
+        //    float percentageComplete = timer / resetTime;
+        //    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, percentageComplete);
+        //    if (timer >= resetTime)
+        //    {
+        //        gameObject.SetActive(true);
+        //        transform.localPosition = initialPos;
+        //        transform.rotation = Quaternion.identity;
+        //        rb.isKinematic = false;
+        //        reset = false;
+        //        knocked = false;
+        //    }
+        //}
     }
     private Vector3 resetMovement = Vector3.zero;
     public void ResetPin()
     {
+        gameObject.SetActive(false);
+        gameObject.SetActive(true);
+        transform.localPosition = initialPos;
+        transform.rotation = Quaternion.identity;
+
+        reset = false;
+        knocked = false;
+
         timer = 0;
         resetMovement = (initialPos - transform.localPosition) / resetTime * Time.deltaTime;
 

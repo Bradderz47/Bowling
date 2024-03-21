@@ -11,6 +11,9 @@ using UnityEngine;
 /// </summary>
 public class GameController : MonoBehaviour
 {
+    [Header("LANE")]
+    [SerializeField] private int lane = 0;
+
     [Header("Initialisation")]
     [SerializeField] private TextMeshPro scoreText;
     [SerializeField] private TextMeshPro frameText;
@@ -38,7 +41,7 @@ public class GameController : MonoBehaviour
     private float turnTimer;
     private bool firstPinKnocked;
 
-    private bool gameActive = true;
+    private bool gameActive = false;
 
     private int playerScore = 0;
     private int[] allScores = new int[10];
@@ -57,34 +60,58 @@ public class GameController : MonoBehaviour
     private int currentFrame = 1;
     private int scoredFrames = 0;
 
-    private void EndGame()
+    private static int lanesFinished = 0;
+
+    private void Start()
     {
-        scoreToBeatText.gameObject.SetActive(true);
-        scoreToBeatText.text = sceneController.GetDifficultyScore().ToString();
-        yourScoreText.gameObject.SetActive(true);
-        yourScoreText.text = playerScore.ToString();
-        if (playerScore >= sceneController.GetDifficultyScore())
+        //Only enable if lanes are open
+        lanesFinished = 0;
+        protector.StartProtect();
+        if (lane <= sceneController.GetLanes())
         {
-            // End the game in victory
-            // Kill the player script so it no longer runs in the victory screen
-            Destroy(FindObjectOfType<PlayerController>());
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            victoryScreen.SetActive(true);
+            gameActive = true;
+            readyText.text = "Ready";
+            frameText.text = "Frame - 1";
+            Invoke("InitialiseGame", 1);
         }
         else
         {
-            // End the game in defeat
-            // Kill the player script so it no longer runs in the victory screen
-            Destroy(FindObjectOfType<PlayerController>());
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            defeatScreen.SetActive(true);
+            Destroy(this);
         }
     }
 
+    private void EndGame()
+    {
+        lanesFinished++;
+        if (lanesFinished == sceneController.GetLanes()) 
+        {
+            scoreToBeatText.gameObject.SetActive(true);
+            scoreToBeatText.text = sceneController.GetDifficultyScore().ToString();
+            yourScoreText.gameObject.SetActive(true);
+            yourScoreText.text = playerScore.ToString();
+            if (playerScore >= sceneController.GetDifficultyScore())
+            {
+                // End the game in victory
+                // Kill the player script so it no longer runs in the victory screen
+                Destroy(FindObjectOfType<PlayerController>());
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                victoryScreen.SetActive(true);
+            }
+            else
+            {
+                // End the game in defeat
+                // Kill the player script so it no longer runs in the victory screen
+                Destroy(FindObjectOfType<PlayerController>());
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                defeatScreen.SetActive(true);
+            }
+        } 
+    }
+
     /// <summary>
-    /// Call this to reset the lane completely
+    /// Starts the lane and initialised the pins
     /// </summary>
     public void InitialiseGame()
     {
@@ -94,9 +121,13 @@ public class GameController : MonoBehaviour
         pinsHitForFrames = new int[10];
         currentThrow = 1;
         noOfThrowsSinceLastScoring = 0;
-        //Reset Pins and protector
-        foreach (pin pin in pins) pin.ResetPin();
-        protector.StartProtect();
+        currentFrame = 1;
+        scoredFrames = 0;
+        //Activate pins
+        foreach (pin pin in pins)
+        {
+            pin.gameObject.SetActive(true);
+        }
     }
     /// <summary>
     /// Ends the throw once a pin has been knocked and no more pins are knocked for a delay

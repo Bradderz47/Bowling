@@ -9,7 +9,8 @@ using UnityEngine.UIElements;
 public class MainMenu : MonoBehaviour
 {
     private static int difficulty = 0;
-    private static int[] difficultyScores = {90, 125, 175, 220, 269};
+    private static int extraLanes = 0;
+    private static int[] difficultyScores = { 90, 125, 175, 220, 269 };
 
     private void Start()
     {
@@ -33,11 +34,14 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Left Game"); //This is for testing purposes, insures line 15 works
     }
 
+    public void ChangeLanes(TMP_Dropdown lane) { extraLanes = lane.value; }
+    // Returns the number of lanes used, +1 as we already have a lane by default
+    public int GetLanes(){ return extraLanes +1;}
+
     // Changes difficulty to whatever is picked
     public void ChangeDifficulty(TMP_Dropdown diff)
     {
         difficulty = diff.value;
-        Debug.Log("Changed difficulty to " + diff.value);
     }
     // Returns the corresponding score based on difficulty
     public int GetDifficultyScore()
