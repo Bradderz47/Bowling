@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using static Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -86,5 +87,13 @@ public class PlayerController : MonoBehaviour
         // Clamp movement
         float newZ = Mathf.Clamp(transform.position.z, -100, zBounds);
         transform.position = new Vector3(transform.position.x, transform.position.y, newZ);
+
+        //Return to Main Menu using 'ESC'
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadSceneAsync(0);
+        }
     }
+
+    
 }
