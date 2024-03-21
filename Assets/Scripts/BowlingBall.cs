@@ -74,9 +74,6 @@ public class BowlingBall : MonoBehaviour
         float forward = 90 - Mathf.Abs(spinAngle);
         float side = -spinAngle;
 
-        Debug.Log(forward);
-        Debug.Log(side);
-
         torque = new Vector3(mainCam.transform.forward.z + forward, 0, -mainCam.transform.forward.x + side).normalized * spinPower;
         if (!thrown)
         {
