@@ -82,6 +82,7 @@ public class pin : MonoBehaviour
         gameObject.SetActive(true);
         transform.localPosition = initialPos;
         transform.rotation = Quaternion.identity;
+        rb.isKinematic = false;
 
         reset = false;
         knocked = false;

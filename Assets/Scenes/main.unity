@@ -7811,7 +7811,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &757414927
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16086,11 +16086,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6527730728522787826, guid: 2ff530f17791a9f458a25417eab786af, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6527730728522787826, guid: 2ff530f17791a9f458a25417eab786af, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6527730728834924707, guid: 2ff530f17791a9f458a25417eab786af, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
@@ -23127,12 +23127,12 @@ GameObject:
   - component: {fileID: 9117156797367573112}
   - component: {fileID: 9117156797367573113}
   m_Layer: 0
-  m_Name: qingmo
+  m_Name: Buying Ball
   m_TagString: BuyBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1397584845891988916
 GameObject:
   m_ObjectHideFlags: 0

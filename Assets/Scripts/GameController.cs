@@ -43,6 +43,7 @@ public class GameController : MonoBehaviour
 
     private bool gameActive = false;
 
+    private static int highestPlayerScore;
     private int playerScore = 0;
     private int[] allScores = new int[10];
     private int[] pinsHitForFrames = new int[10];
@@ -83,13 +84,15 @@ public class GameController : MonoBehaviour
     private void EndGame()
     {
         lanesFinished++;
+        // Set the highest score to the highest score
+        if (playerScore > highestPlayerScore) highestPlayerScore = playerScore;
         if (lanesFinished == sceneController.GetLanes()) 
         {
             scoreToBeatText.gameObject.SetActive(true);
             scoreToBeatText.text = sceneController.GetDifficultyScore().ToString();
             yourScoreText.gameObject.SetActive(true);
             yourScoreText.text = playerScore.ToString();
-            if (playerScore >= sceneController.GetDifficultyScore())
+            if (highestPlayerScore >= sceneController.GetDifficultyScore())
             {
                 // End the game in victory
                 // Kill the player script so it no longer runs in the victory screen
@@ -120,8 +123,8 @@ public class GameController : MonoBehaviour
         allScores = new int[10];
         pinsHitForFrames = new int[10];
         currentThrow = 1;
-        noOfThrowsSinceLastScoring = 0;
-        currentFrame = 1;
+        noOfThrowsSinceLastScoring = 1;
+        currentFrame = 10;
         scoredFrames = 0;
         //Activate pins
         foreach (pin pin in pins)
@@ -157,7 +160,6 @@ public class GameController : MonoBehaviour
     public void PinKnocked()
     {
         readyText.text = "...";
-        //Debug.Log("Knocked a pin " + (pinsKnockedThisFrame+1) + " this frame");
         if (!firstPinKnocked) firstPinKnocked = true;
         turnTimer = 0;
         pinsKnockedThisFrame++;
@@ -174,7 +176,6 @@ public class GameController : MonoBehaviour
         // End if shot was a strike, or if two subsequent shots where thrown, ignoring the 3 round last frame
         if ( (pinsKnockedThisFrame == 10 && currentThrow < 2) || (currentThrow == 2 && currentFrame != 10))
         {
-            Debug.Log("Starting Frame " + (currentFrame + 1));
             // Set pins knocked to 11, even though it was 10, so i know it was a strike and not a spare
             if (pinsKnockedThisThrow == 10 && currentThrow == 1) pinsHitForFrames[currentFrame - 1] = 11;
             else pinsHitForFrames[currentFrame - 1] = pinsKnockedThisFrame;
@@ -200,9 +201,7 @@ public class GameController : MonoBehaviour
                 // If the player leaves the frame open (no spare or strike) - End the game
                 if (pinsKnockedThisFrame < 10)
                 {
-                    Debug.Log("End Game");
                     playerScore += pinsKnockedThisFrame;
-                    Debug.Log("FINAL SCORE : " + playerScore);
                     frameText.text = "Game End";
                     gameActive = false;
                     Invoke("EndGame", 5);
@@ -214,12 +213,9 @@ public class GameController : MonoBehaviour
             if (currentThrow >= 3)
             {
                 CalculateScore(true);
-                Debug.Log("FINAL SCORE : " + playerScore);
                 frameText.text = "Game End";
                 gameActive = false;
-                //
                 Invoke("EndGame", 5);
-                //
                 return;
             }
         }
@@ -233,8 +229,6 @@ public class GameController : MonoBehaviour
         {
             if (!pin.IsKnocked()) pin.ResetPin();
         }
-
-        Debug.Log("Next Throw, Current = " + currentThrow);
         currentThrow++;
         pinsKnockedThisThrow = 0;
         //thrower.initiateNewThrow();
@@ -257,14 +251,12 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            Debug.Log("final frame");
             // The final throw is simply just the sum of all the throws of the final frame with a max of 30 for 3 strikes
             if (currentThrow == 3) { allScores[scoredFrames] = last3Throws.Sum(); }
             else { allScores[scoredFrames] = last3Throws[0] + last3Throws[1]; }
             playerScore += allScores[scoredFrames];
             scoredFrames++;
         }
-        Debug.Log("Score for frame "+scoredFrames+" : " + allScores[scoredFrames-1] + " For a total score of " + playerScore);
         scoreText.text = playerScore.ToString();
     }
 
