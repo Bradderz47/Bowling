@@ -43,7 +43,7 @@ public class pin : MonoBehaviour
             gameController.PinKnocked();
             knocked = true;
         }
-        // A death effect to remove the pins
+        // A death effect to remove the pins (They sink into the ground)
         if (knocked && !dead && !reset)
         {
             timer += Time.deltaTime; 
@@ -58,40 +58,24 @@ public class pin : MonoBehaviour
             transform.position -= new Vector3 (0, deathSpeed, 0) * Time.deltaTime;
             return;
         }
-        //if (reset)
-        //{
-        //    transform.position += resetMovement;
-        //    timer += Time.deltaTime;
-        //    float percentageComplete = timer / resetTime;
-        //    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, percentageComplete);
-        //    if (timer >= resetTime)
-        //    {
-        //        gameObject.SetActive(true);
-        //        transform.localPosition = initialPos;
-        //        transform.rotation = Quaternion.identity;
-        //        rb.isKinematic = false;
-        //        reset = false;
-        //        knocked = false;
-        //    }
-        //}
     }
-    private Vector3 resetMovement = Vector3.zero;
+    // Teleports the pins back to their origin after a delay
     public void ResetPin()
+    {     
+        reset = true;
+        knocked = false;
+        timer = 0;
+        dead = false;
+        //invoke a delay so the pins don't blip into existence
+        Invoke("Reappear", 1);
+
+    }
+    private void Reappear()
     {
-        gameObject.SetActive(false);
-        gameObject.SetActive(true);
         transform.localPosition = initialPos;
         transform.rotation = Quaternion.identity;
-        rb.isKinematic = false;
-
         reset = false;
-        knocked = false;
-
-        timer = 0;
-        resetMovement = (initialPos - transform.localPosition) / resetTime * Time.deltaTime;
-
-        reset = true;
-        dead = false;
+        rb.isKinematic = false;
     }
 
     public bool IsKnocked() { return knocked; }

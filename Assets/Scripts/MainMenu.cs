@@ -31,7 +31,6 @@ public class MainMenu : MonoBehaviour
     public void QuitGame() //Quits the application (leaving the game)
     {
         Application.Quit();
-        Debug.Log("Left Game"); //This is for testing purposes, insures line 15 works
     }
 
     public void ChangeLanes(TMP_Dropdown lane) { extraLanes = lane.value; }

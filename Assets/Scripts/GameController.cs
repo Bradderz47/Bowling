@@ -123,8 +123,8 @@ public class GameController : MonoBehaviour
         allScores = new int[10];
         pinsHitForFrames = new int[10];
         currentThrow = 1;
-        noOfThrowsSinceLastScoring = 1;
-        currentFrame = 10;
+        noOfThrowsSinceLastScoring = 0;
+        currentFrame = 1;
         scoredFrames = 0;
         //Activate pins
         foreach (pin pin in pins)
