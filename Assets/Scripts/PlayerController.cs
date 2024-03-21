@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int moveSpeed;
     [SerializeField] private float sensitivity;
 
-    [SerializeField] private float zBounds = -16f; // Prevent the player from walking into the lanes
+    [SerializeField] private float zBounds = -25f; // Prevent the player from walking too far into the lanes
 
 
     //Player Main Camera

@@ -68,7 +68,6 @@
     <Compile Include="Assets\Scripts\BowlingBall.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\pin.cs" />
-    <Compile Include="Assets\Scripts\Ball_Controller.cs" />
     <Compile Include="Assets\Scripts\Thrower.cs" />
     <Compile Include="Assets\Scripts\money.cs" />
     <Compile Include="Assets\Scripts\ScoreToBeatDisplay.cs" />

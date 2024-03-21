@@ -43,31 +43,27 @@ public class BowlingBall : MonoBehaviour
         // Constantly add force in chosen directions to amplify the effects.
         if (thrown)
         {
-            rb.AddForce(new Vector3(force.x, 0, force.z).normalized * rollStength * Time.deltaTime);
-            rb.AddTorque(torque * Time.deltaTime);
+            rb.AddForce(new Vector3(force.x*rb.mass, 0, force.z*rb.mass).normalized * rollStength * Time.deltaTime);
+            rb.AddTorque(torque * Time.deltaTime * rb.mass);
         }
-
     }
-
-
     public void Throw(Camera mainCam, float power)
     {
         // Ensure throw is applied in the look direction
         transform.SetParent(null);
         rb.isKinematic = false;
-        rb.velocity = mainCam.transform.forward * power;
-        //rb.angularVelocity = mainCam.transform.forward * spinPower;
+        // Throw heavier balls slower
+        rb.velocity = mainCam.transform.forward * power/rb.mass;
         
         // Get the facing of the camera, Yes the y controls horizontal rotation and x is vertical
         float Xrotation = mainCam.transform.rotation.eulerAngles.y;
-        //if (Mathf.Abs(Xrotation) > 180) Xrotation -= 180
         float Yrotation = -mainCam.transform.rotation.eulerAngles.x;
 
+        // Convert the angle into radiens and calculate the force vector (Note, y needs to be included to calculate the correct x and z)
         float horizontalRads = Xrotation / (180 / Mathf.PI);
         float verticalRads = Yrotation / (180 / Mathf.PI);
-        // Convert the angle into radiens and calculate the force vector (Note, y needs to be included to calculate the correct x and z)
-        force = new Vector3(Mathf.Sin(horizontalRads), Mathf.Tan(verticalRads), Mathf.Cos(horizontalRads)).normalized;
 
+        force = new Vector3(Mathf.Sin(horizontalRads), Mathf.Tan(verticalRads), Mathf.Cos(horizontalRads)).normalized;
         Debug.DrawRay(transform.position, force * power, Color.red, 60f);
 
         //// Spin is applied independent of player facing
@@ -79,7 +75,6 @@ public class BowlingBall : MonoBehaviour
         {
             thrown = true;
             rb.isKinematic = false;
-            //rb.AddForce(force * power);
         }
     }
 

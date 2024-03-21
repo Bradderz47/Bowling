@@ -37,7 +37,7 @@ public class MainMenu : MonoBehaviour
     // Returns the number of lanes used, +1 as we already have a lane by default
     public int GetLanes(){ return extraLanes +1;}
 
-    // Changes difficulty to whatever is picked
+    // Changes difficulty to whatever is picked, called whenever the value is changed
     public void ChangeDifficulty(TMP_Dropdown diff)
     {
         difficulty = diff.value;

@@ -29,11 +29,14 @@ public class Thrower : MonoBehaviour
 
     void Update()
     {
+        // Check charge inputs
         if(ball != null) Charge();
+        // Check pickup inputs
         Selected();
-
+        // Ballspin
         if (Input.GetKey(KeyCode.Q) && editDelay <= 0)
         {
+            // Shift degree to the left 1 degree, updating the ui
             if (spinAngle > -90 ) spinAngle -= 1;
             degreeText.text = "Spin Angle : " + spinAngle + "*";
             spinSlider.value = 0.5f + (0.5f/90 * spinAngle);
@@ -42,6 +45,7 @@ public class Thrower : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.E) && editDelay <= 0)
         {
+            // Shift degree to the right 1 degree, updating the ui
             if (spinAngle < 90) spinAngle += 1;
             degreeText.text = "Spin Angle : " + spinAngle + "*";
             spinSlider.value = 0.5f + (0.5f / 90 * spinAngle);
@@ -49,18 +53,16 @@ public class Thrower : MonoBehaviour
             editDelay = 0.05f;
         }
             editDelay -= Time.deltaTime;
-
-        // Ball Spin
     }
     /// <summary>
-    /// Should be in the player controller
+    /// Raycasts a ball on click and picks it up, setting it's parent to the camera
     /// </summary>
     private void Selected()
     {
         if (Input.GetMouseButtonDown(0) && ball == null)
         {
             RaycastHit hitInfo;
-            Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo, 1000);
+            Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo, 5);
             Vector3 halfExtents = new Vector3(0.001f, 0.001f, 0.001f);
             Collider[] colliders = Physics.OverlapBox(hitInfo.point, halfExtents);
             if (colliders.Length > 0 && colliders[0].tag.Equals("Ball"))
@@ -70,10 +72,10 @@ public class Thrower : MonoBehaviour
                 ball = colliders[0].GetComponent<BowlingBall>();
                 colliders[0].GetComponent<Rigidbody>().isKinematic = true;
             }
-            else if (colliders[0].tag.Equals("BuyBall") && !colliders[0].GetComponent<purchase>().ispurchase)
-            {
-                colliders[0].GetComponent<purchase>().Sp();
-            }
+            //else if (colliders[0].tag.Equals("BuyBall") && !colliders[0].GetComponent<purchase>().ispurchase)
+            //{
+            //    colliders[0].GetComponent<purchase>().Sp();
+            //}
         }
     }
     private void Charge()

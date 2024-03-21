@@ -88,6 +88,7 @@ public class GameController : MonoBehaviour
         if (playerScore > highestPlayerScore) highestPlayerScore = playerScore;
         if (lanesFinished == sceneController.GetLanes()) 
         {
+            // Reveal and update the scores - they are present on either screen
             scoreToBeatText.gameObject.SetActive(true);
             scoreToBeatText.text = sceneController.GetDifficultyScore().ToString();
             yourScoreText.gameObject.SetActive(true);
@@ -104,7 +105,7 @@ public class GameController : MonoBehaviour
             else
             {
                 // End the game in defeat
-                // Kill the player script so it no longer runs in the victory screen
+                // Kill the player script so it no longer runs in the defeat screen
                 Destroy(FindObjectOfType<PlayerController>());
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
